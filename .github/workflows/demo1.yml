@@ -1,8 +1,17 @@
 name: Events Demo 1
-on: 
+on:
   pull_request:
     types: [opened, edited]
-  workflow_dispatch:    
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      # * ini jadi branch yg berawal dev
+      - "dev-*"
+      # * ini jadi branch yg berawal feat/ kenapa double asterisk/ ** ? jadi kedepannya ada slash lagi jg bisa
+      - "feat/**"
+    paths-ignore:
+      - ".github/workflows/*"
 jobs:
   deploy:
     runs-on: ubuntu-latest
