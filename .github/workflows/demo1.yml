@@ -2,6 +2,12 @@ name: Events Demo 1
 on:
   pull_request:
     types: [opened, edited]
+    branches:
+      - main
+      # * ini jadi branch yg berawal dev
+      - "dev-*"
+      # * ini jadi branch yg berawal feat/ kenapa double asterisk/ ** ? jadi kedepannya ada slash lagi jg bisa
+      - "feat/**"
   workflow_dispatch:
   push:
     branches:
